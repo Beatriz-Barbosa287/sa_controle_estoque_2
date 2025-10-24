@@ -139,7 +139,7 @@ usecaseDiagram
     Operador --> (Registrar Movimentações)
 ```
 ``` mermaid
-flowchart TD
+flowchartTD
     A[Usuário abre sistema] --> B[Login: username + password]
     B --> C{Validação via JWT}
     C -->|Não| D[Erro: usuário ou senha inválidos]
