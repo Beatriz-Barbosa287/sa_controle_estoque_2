@@ -100,7 +100,7 @@ gestor    | 456   | gestor   | Dashboard, Produtos, Movimentações
 =========================================================================
 ## DIAGRAMAS 
 =========================================================================
-
+```` mermaid
 
 classDiagram
     class User {
@@ -125,9 +125,9 @@ classDiagram
     User --> Movement
     Product --> Movement
     
+```
 
-
-%% Diagrama de Casos de Uso
+```` mermaid
 usecaseDiagram
     actor Gestor
     actor Operador
@@ -137,10 +137,8 @@ usecaseDiagram
     Gestor --> (Registrar Movimentações)
     Gestor --> (Dashboard)
     Operador --> (Registrar Movimentações)
-'''
-
-'''mermaid
-%% Diagrama de Fluxo (Login e Acesso ao Dashboard)
+```
+```` mermaid
 flowchart TD
     A[Usuário abre sistema] --> B[Login: username + password]
     B --> C{Validação via JWT}
@@ -152,7 +150,7 @@ flowchart TD
     H --> I[Atualiza front-end e estoque]
     G --> J[Acessar dashboard, produtos, movimentações]
     J --> K[Atualiza front-end com tabelas e resumos]
-'''
+```
 
 =========================================================================
 ## PROTÓTIPO PRETENDIDO E DIFICULDADES
