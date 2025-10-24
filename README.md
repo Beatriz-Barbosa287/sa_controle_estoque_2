@@ -100,7 +100,7 @@ gestor    | 456   | gestor   | Dashboard, Produtos, Movimentações
 =========================================================================
 ## DIAGRAMAS 
 =========================================================================
-```` mermaid
+``` mermaid
 
 classDiagram
     class User {
@@ -127,7 +127,7 @@ classDiagram
     
 ```
 
-```` mermaid
+``` mermaid
 usecaseDiagram
     actor Gestor
     actor Operador
@@ -138,7 +138,7 @@ usecaseDiagram
     Gestor --> (Dashboard)
     Operador --> (Registrar Movimentações)
 ```
-```` mermaid
+``` mermaid
 flowchart TD
     A[Usuário abre sistema] --> B[Login: username + password]
     B --> C{Validação via JWT}
