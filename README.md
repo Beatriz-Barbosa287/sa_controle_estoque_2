@@ -1,185 +1,172 @@
+# SISTEMA DE CONTROLE DE ESTOQUE
+## Almoxarifado Central Ltda. / DevSolutions
 
-# Sistema de Controle de Estoque - Almoxarifado Central Ltda.
+================================================================================
+## ESCOPO DO PROJETO
+================================================================================
+MVP para gerenciamento de estoque de produtos de escritório:
+- Controle de estoque
+- Registro de movimentações
+- Gestão de usuários (gestor e operador)
+- Dashboard com visão geral
+- Destaque visual de produtos abaixo da quantidade mínima
 
-## Descrição do Projeto
-Este projeto foi desenvolvido como um MVP (Produto Mínimo Viável) para gerenciar o estoque de produtos de escritório de forma eficiente, substituindo planilhas manuais. O sistema permite registrar produtos, movimentações de entrada e saída, além de fornecer uma visão geral do estoque para gestores e operadores.
+================================================================================
+## REQUISITOS FUNCIONAIS
+================================================================================
+1. Autenticação de Usuários
+   - Login via username e password
+   - Redirecionamento baseado na role (gestor ou operador)
+   - Criptografia de senhas com bcrypt
 
-O projeto foi construído com **Next.js** (App Router), **MongoDB** com Mongoose, autenticação com **JWT** e senha simples para dois usuários (gestor e operador), e estilização simples em HTML/JSX.
+2. Gestão de Produtos
+   - Cadastro, visualização, edição e exclusão de produtos
+   - Campos: Nome, SKU, Quantidade mínima, Quantidade atual
+   - Destaque visual para produtos abaixo da quantidade mínima
 
+3. Gestão de Movimentações
+   - Registro de entrada e saída de produtos
+   - Atualização automática do estoque
+   - Histórico completo de movimentações, com operador e data
 
+4. Dashboard
+   - Exibe resumo do estoque
+   - Lista produtos críticos (quantidade abaixo do mínimo)
+   - Total de movimentações realizadas
 
-## Estrutura de Pastas
+================================================================================
+## REQUISITOS NÃO FUNCIONAIS
+================================================================================
+- Sistema deve ser desenvolvido em Next.js
+- Banco de dados MongoDB com Mongoose
+- Autenticação segura via JWT
+- Senhas criptografadas usando bcrypt
+- Scripts de seed para inicialização de usuários e produtos
+- Interface simples e responsiva
+- Proteção de rotas baseada em roles
+- Performance adequada para até 1000 produtos e movimentações
 
-```
+================================================================================
+## FUNCIONALIDADES INCLUÍDAS
+================================================================================
+1. Autenticação de Usuários
+   - Tela de login com autenticação via JWT
+   - Criptografia de senhas usando bcrypt
+   - Redirecionamento baseado na role:
+     * Gestor: Dashboard, Produtos, Movimentações
+     * Operador: Movimentações apenas
 
-/estoque
-│
-├─ app/
-│   ├─ login/page.tsx                # Tela de login
-│   ├─ dashboard/page.tsx            # Dashboard gestor
-│   ├─ gestaoestoque/page.tsx        # Tela de gestão de estoque
-│   ├─ products/page.tsx             # CRUD de produtos (gestor)
-│   └─ movements/page.tsx            # Movimentações (operador e gestor)
-│
-├─ app/api/
-│   ├─ login/route.ts                # Autenticação
-│   ├─ products/route.ts             # API produtos
-│   ├─ movements/route.ts            # API movimentações
-│   └─ gestaoestoque/route.ts        # API resumo estoque
-│
-├─ lib/
-│   └─ auth.ts                       # Função utilitária para extrair usuário do token
-│
-├─ models/
-│   ├─ User.ts
-│   ├─ Product.ts
-│   └─ Movement.ts
-│
-├─ controllers/
-│   ├─ productController.ts
-│   ├─ movementController.ts
-│   ├─ usuarioController.ts
-│   └─ gestaoEstoqueController.ts
-│
-├─ scripts/
-│   ├─ products-seed.js
-│   ├─ movements-seed.js
-│   └─ initUsuario.js
-│
-├─ package.json
-└─ .env.local
+2. Dashboard Principal
+   - Visão geral dos produtos em estoque
+   - Produtos abaixo da quantidade mínima destacados
+   - Total de movimentações realizadas
 
-```
+3. Gestão de Produtos (CRUD)
+   - Cadastro, visualização e exclusão de produtos
+   - Campos: Nome, SKU, Quantidade mínima, Quantidade atual
+   - Destaque visual para produtos críticos
 
+4. Gestão de Movimentações (CRUD)
+   - Registro de entrada/saída de produtos
+   - Atualiza quantidade atual automaticamente
+   - Histórico completo com operador e data
 
-## Bibliotecas Utilizadas
+================================================================================
+## USUÁRIOS E ROLES
+================================================================================
+Usuário   | Senha | Role     | Telas Acessíveis
+--------- | ----- | ------- | -----------------------------
+operador  | 123   | operador | Movimentações
+gestor    | 456   | gestor   | Dashboard, Produtos, Movimentações
 
-- **Next.js**: Framework React para desenvolvimento Fullstack
-- **React**: Construção de interfaces do usuário
-- **MongoDB + Mongoose**: Banco de dados NoSQL e modelagem de dados
-- **jsonwebtoken (JWT)**: Autenticação baseada em token
-- **Node.js / npm**: Execução do servidor e instalação de dependências
+==========================================================================
+## LÓGICA DE PROGRAMAÇÃO
+================================================================================
+1. Login → validação via JWT → redirecionamento conforme role
+2. Proteção de rotas → front-end e back-end
+3. CRUD de Produtos / Movimentações
+4. Dashboard → consulta dados → atualiza front-end
+5. Destaques visuais e histórico de movimentações
 
+================================================================================
+## DESAFIOS SOLUCIONADOS
+================================================================================
+- Autenticação segura e redirecionamento por roles
+- Atualização automática do estoque
+- Scripts de seed para popular banco
+- Criação de CRUDs integrados com front-end
+- Construção de dashboard simples e funcional
 
-## Usuários e Roles
+================================================================================
+## DIAGRAMAS EM MERMAID
+================================================================================
 
-| Usuário   | Senha | Role     | Telas Acessíveis            |
-|-----------|-------|----------|-----------------------------|
-| operador  | 123   | operador | Movimentações              |
-| gestor    | 456   | gestor   | Dashboard, Produtos, Movimentações, Gestão de Estoque |
+'''mermaid
+%% Diagrama de Classes
+classDiagram
+    class User {
+        +String username
+        +String password
+        +String role
+    }
+    class Product {
+        +String nome
+        +String sku
+        +Number quantidadeMinima
+        +Number quantidadeAtual
+    }
+    class Movement {
+        +String tipo
+        +Number quantidade
+        +Date data
+        +String operador
+        +Product produto
+    }
 
+    User --> Movement
+    Product --> Movement
+'''
 
-## Funcionalidades Implementadas
+'''mermaid
+%% Diagrama de Casos de Uso
+usecaseDiagram
+    actor Gestor
+    actor Operador
+    Gestor --> (Login)
+    Operador --> (Login)
+    Gestor --> (Gerenciar Produtos)
+    Gestor --> (Registrar Movimentações)
+    Gestor --> (Dashboard)
+    Operador --> (Registrar Movimentações)
+'''
 
-### Login
-- Autenticação via JWT
-- Redirecionamento automático:
-  - Gestor → `/dashboard` → acesso a `/products`, `/movements`, `/gestaoestoque`
-  - Operador → `/movements`
-- Token válido por 1 hora
-- Front-end protege páginas sensíveis baseado na role
+'''mermaid
+%% Diagrama de Fluxo (Login e Acesso ao Dashboard)
+flowchart TD
+    A[Usuário abre sistema] --> B[Login: username + password]
+    B --> C{Validação via JWT}
+    C -->|Não| D[Erro: usuário ou senha inválidos]
+    C -->|Sim| E{Role do usuário}
+    E -->|Operador| F[Redireciona para /movements]
+    E -->|Gestor| G[Redireciona para /dashboard]
+    F --> H[Registrar entrada/saída de produtos]
+    H --> I[Atualiza front-end e estoque]
+    G --> J[Acessar dashboard, produtos, movimentações]
+    J --> K[Atualiza front-end com tabelas e resumos]
+'''
 
-### Produtos (Gestor)
-- CRUD completo: criar, listar, editar (não implementado edição simples), deletar (opcional)
-- Destaque visual para produtos abaixo da quantidade mínima (vermelho)
-- Listagem completa com nome, SKU, quantidade atual e mínima
+================================================================================
+## PROTÓTIPO PRETENDIDO E DIFICULDADES
+================================================================================
+O projeto inicial previa um protótipo visual detalhado no Figma, incluindo:
 
-### Movimentações (Operador e Gestor)
-- Registro de entrada e saída de produtos
-- Seleção de produto e quantidade
-- Atualiza automaticamente a quantidade atual do produto
-- Histórico completo de movimentações com operador e data
+- Dashboard mais elaborado com gráficos
+- Listagens detalhadas de produtos com filtros avançados
+- Navegação visual intuitiva e estética mais próxima do layout ideal
 
-### Gestão de Estoque / Dashboard (Gestor)
-- Resumo do estoque:
-  - Total de produtos
-  - Produtos abaixo do mínimo
-  - Total de movimentações
-- Botões de navegação para todas as áreas de gestão
+Durante o desenvolvimento, enfrentamos dificuldades:
 
-
-## Scripts de Inicialização
-
-1. **Criar usuários**: `node scripts/initUsuario.js`
-2. **Popular produtos**: `node scripts/products-seed.js`
-3. **Popular movimentações**: `node scripts/movements-seed.js`
-
-
-## Lógica de Programação
-
-1. **Login**
-   - Usuário envia `username` e `password` → API valida → gera JWT
-   - Front-end guarda token → redireciona de acordo com role
-2. **Proteção de rotas**
-   - Front-end: verifica token e role antes de renderizar página
-   - Back-end: valida token em rotas sensíveis (`products`, `movements`, `gestaoestoque`)
-3. **Produtos**
-   - CRUD básico usando Mongoose
-   - Destaque visual de produtos críticos
-4. **Movimentações**
-   - Criação de movimentação → atualiza quantidade atual do produto
-   - Histórico completo disponível
-5. **Gestão de estoque / Dashboard**
-   - Consulta produtos e movimentações
-   - Calcula totais e produtos críticos
-
-
-## Desafios Solucionados
-
-- Implementar **login simples com roles** e redirecionamento correto
-- Atualizar quantidade do produto automaticamente ao registrar movimentações
-- Criar **API genérica protegida com JWT**
-- Gerenciar **usuários, produtos e movimentações** de forma integrada
-- Criar **scripts de seed** para popular o banco rapidamente
-- Construir **front-end funcional e simples** sem dependências complexas de CSS/Frameworks
-
-
-## Diagrama de Fluxo da Lógica de Programação
-
-```
-
-[Usuário abre sistema]
-|
-v
-[Login: username + password]
-|
-v
-[Validação Login via JWT]
-|
-+--> [Token válido?] --Não--> [Erro: usuário ou senha inválidos]
-|
-Sim
-|
-+--> [Role: operador?] --Sim--> [Redireciona /movements]
-|                           |
-|                           v
-|                     [Registrar movimentações]
-|
-+--> [Role: gestor?] --Sim--> [Redireciona /dashboard]
-|
-v
-[Acessa dashboard, produtos, gestaoestoque, movimentações]
-|
-v
-[Consultar produtos / registrar movimentações / atualizar estoque]
-|
-v
-[Front-end atualiza tabela e cores]
-|
-v
-[Usuário logado e token válido]
-
-```
-
-
-## Observações Finais
-
-- Projeto é **MVP funcional**: login, produtos, movimentações e gestão de estoque
-- **Front-end simples** usando HTML/JSX puro com Next.js
-- **Banco de dados** MongoDB com Mongoose
-- **Autenticação segura** com JWT
-- Código organizado em **models, controllers, scripts e APIs**
-- Fácil de expandir futuramente para: edição de produtos, gráficos no dashboard, múltiplos usuários, etc.
-
-
-
+1. Limitação de tempo (50 minutos para MVP)
+2. Adaptação do projeto-base existente em Next.js
+3. Integração de autenticação e roles com todas as páginas
+4. Ajustes de front-end sem frameworks de UI complexos
