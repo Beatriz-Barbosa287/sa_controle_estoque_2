@@ -101,7 +101,7 @@ gestor    | 456   | gestor   | Dashboard, Produtos, Movimentações
 ## DIAGRAMAS EM MERMAID
 =========================================================================
 
-'''mermaid
+´´´ mermaid
 %% Diagrama de Classes
 classDiagram
     class User {
@@ -125,7 +125,7 @@ classDiagram
 
     User --> Movement
     Product --> Movement
-'''
+    ´´´
 
 '''mermaid
 %% Diagrama de Casos de Uso
