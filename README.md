@@ -98,11 +98,10 @@ gestor    | 456   | gestor   | Dashboard, Produtos, Movimentações
 - Construção de dashboard simples e funcional
 
 =========================================================================
-## DIAGRAMAS EM MERMAID
+## DIAGRAMAS 
 =========================================================================
 
-´´´ mermaid
-%% Diagrama de Classes
+
 classDiagram
     class User {
         +String username
@@ -125,9 +124,9 @@ classDiagram
 
     User --> Movement
     Product --> Movement
-    ´´´
+    
 
-'''mermaid
+
 %% Diagrama de Casos de Uso
 usecaseDiagram
     actor Gestor
