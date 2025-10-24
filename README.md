@@ -1,9 +1,9 @@
 # SISTEMA DE CONTROLE DE ESTOQUE
 ## Almoxarifado Central Ltda. / DevSolutions
 
-================================================================================
+=========================================================================
 ## ESCOPO DO PROJETO
-================================================================================
+=========================================================================
 MVP para gerenciamento de estoque de produtos de escritório:
 - Controle de estoque
 - Registro de movimentações
@@ -11,9 +11,9 @@ MVP para gerenciamento de estoque de produtos de escritório:
 - Dashboard com visão geral
 - Destaque visual de produtos abaixo da quantidade mínima
 
-================================================================================
+=========================================================================
 ## REQUISITOS FUNCIONAIS
-================================================================================
+=========================================================================
 1. Autenticação de Usuários
    - Login via username e password
    - Redirecionamento baseado na role (gestor ou operador)
@@ -34,9 +34,9 @@ MVP para gerenciamento de estoque de produtos de escritório:
    - Lista produtos críticos (quantidade abaixo do mínimo)
    - Total de movimentações realizadas
 
-================================================================================
+=========================================================================
 ## REQUISITOS NÃO FUNCIONAIS
-================================================================================
+=========================================================================
 - Sistema deve ser desenvolvido em Next.js
 - Banco de dados MongoDB com Mongoose
 - Autenticação segura via JWT
@@ -46,9 +46,9 @@ MVP para gerenciamento de estoque de produtos de escritório:
 - Proteção de rotas baseada em roles
 - Performance adequada para até 1000 produtos e movimentações
 
-================================================================================
+=========================================================================
 ## FUNCIONALIDADES INCLUÍDAS
-================================================================================
+=========================================================================
 1. Autenticação de Usuários
    - Tela de login com autenticação via JWT
    - Criptografia de senhas usando bcrypt
@@ -71,35 +71,35 @@ MVP para gerenciamento de estoque de produtos de escritório:
    - Atualiza quantidade atual automaticamente
    - Histórico completo com operador e data
 
-================================================================================
+=========================================================================
 ## USUÁRIOS E ROLES
-================================================================================
+=========================================================================
 Usuário   | Senha | Role     | Telas Acessíveis
 --------- | ----- | ------- | -----------------------------
 operador  | 123   | operador | Movimentações
 gestor    | 456   | gestor   | Dashboard, Produtos, Movimentações
 
-==========================================================================
+=========================================================================
 ## LÓGICA DE PROGRAMAÇÃO
-================================================================================
+=========================================================================
 1. Login → validação via JWT → redirecionamento conforme role
 2. Proteção de rotas → front-end e back-end
 3. CRUD de Produtos / Movimentações
 4. Dashboard → consulta dados → atualiza front-end
 5. Destaques visuais e histórico de movimentações
 
-================================================================================
+=========================================================================
 ## DESAFIOS SOLUCIONADOS
-================================================================================
+=========================================================================
 - Autenticação segura e redirecionamento por roles
 - Atualização automática do estoque
 - Scripts de seed para popular banco
 - Criação de CRUDs integrados com front-end
 - Construção de dashboard simples e funcional
 
-================================================================================
+=========================================================================
 ## DIAGRAMAS EM MERMAID
-================================================================================
+=========================================================================
 
 '''mermaid
 %% Diagrama de Classes
@@ -155,9 +155,9 @@ flowchart TD
     J --> K[Atualiza front-end com tabelas e resumos]
 '''
 
-================================================================================
+=========================================================================
 ## PROTÓTIPO PRETENDIDO E DIFICULDADES
-================================================================================
+========================================================================
 O projeto inicial previa um protótipo visual detalhado no Figma, incluindo:
 
 - Dashboard mais elaborado com gráficos
