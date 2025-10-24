@@ -103,6 +103,7 @@ gestor    | 456   | gestor   | Dashboard, Produtos, Movimentações
 ``` mermaid
 
 classDiagram
+
     class User {
         +String username
         +String password
@@ -129,6 +130,7 @@ classDiagram
 
 ``` mermaid
 usecaseDiagram
+
     actor Gestor
     actor Operador
     Gestor --> (Login)
@@ -139,7 +141,8 @@ usecaseDiagram
     Operador --> (Registrar Movimentações)
 ```
 ``` mermaid
-flowchartTD
+flowchart TD
+
     A[Usuário abre sistema] --> B[Login: username + password]
     B --> C{Validação via JWT}
     C -->|Não| D[Erro: usuário ou senha inválidos]
