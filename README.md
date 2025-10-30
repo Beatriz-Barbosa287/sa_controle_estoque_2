@@ -131,15 +131,22 @@ classDiagram
 ``` mermaid
 graph TD
 
-    actor Gestor
-    actor Operador
-    Gestor --> (Login)
-    Operador --> (Login)
-    Gestor --> (Gerenciar Produtos)
-    Gestor --> (Registrar Movimentações)
-    Gestor --> (Dashboard)
-    Operador --> (Registrar Movimentações)
+    Gestor([Gestor])
+    Operador([Operador])
+
+    Login((Login))
+    GerenciarProdutos((Gerenciar Produtos))
+    RegistrarMov((Registrar Movimentações))
+    Dashboard((Dashboard))
+
+    Gestor --> Login
+    Operador --> Login
+    Gestor --> GerenciarProdutos
+    Gestor --> RegistrarMov
+    Gestor --> Dashboard
+    Operador --> RegistrarMov
 ```
+  
 ``` mermaid
 flowchart TD
 
