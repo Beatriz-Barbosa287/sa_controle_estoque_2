@@ -4,7 +4,7 @@
 =========================================================================
 ## ESCOPO DO PROJETO
 =========================================================================
-MVP para gerenciamento de estoque de produtos de escritório:
+
 - Controle de estoque
 - Registro de movimentações
 - Gestão de usuários (gestor e operador)
