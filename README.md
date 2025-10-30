@@ -164,8 +164,8 @@ flowchart TD
 ========================================================================
 ## PROTÓTIPO PRETENDIDO E DIFICULDADES
 ========================================================================
-O projeto inicial previa um protótipo visual detalhado no Figma, incluindo:
 
+O projeto inicial previa um protótipo visual detalhado no Figma, incluindo:
 - Dashboard mais elaborado com gráficos
 - Listagens detalhadas de produtos com filtros avançados
 - Navegação visual intuitiva e estética mais próxima do layout ideal
