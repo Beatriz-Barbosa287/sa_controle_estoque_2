@@ -155,7 +155,7 @@ flowchart TD
     J --> K[Atualiza front-end com tabelas e resumos]
 ```
 
-=========================================================================
+========================================================================
 ## PROTÓTIPO PRETENDIDO E DIFICULDADES
 ========================================================================
 O projeto inicial previa um protótipo visual detalhado no Figma, incluindo:
@@ -170,3 +170,8 @@ Durante o desenvolvimento, enfrentamos dificuldades:
 2. Adaptação do projeto-base existente em Next.js
 3. Integração de autenticação e roles com todas as páginas
 4. Ajustes de front-end sem frameworks de UI complexos
+5. 
+======================================================================== 
+## PROTOTIPAÇÃO
+========================================================================
+https://www.figma.com/design/5Hz54O9qqHxzpCrNllEWnz/Untitled?node-id=0-1&t=38JQMILe9UZUbNhm-1
