@@ -129,7 +129,7 @@ classDiagram
 ```
 
 ``` mermaid
-usecaseDiagram
+classeDiagram
 
     actor Gestor
     actor Operador
