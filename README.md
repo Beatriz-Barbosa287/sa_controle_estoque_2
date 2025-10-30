@@ -33,7 +33,6 @@ MVP para gerenciamento de estoque de produtos de escritório:
    - Exibe resumo do estoque
    - Lista produtos críticos (quantidade abaixo do mínimo)
    - Total de movimentações realizadas
-
 =========================================================================
 ## REQUISITOS NÃO FUNCIONAIS
 =========================================================================
@@ -44,8 +43,6 @@ MVP para gerenciamento de estoque de produtos de escritório:
 - Scripts de seed para inicialização de usuários e produtos
 - Interface simples e responsiva
 - Proteção de rotas baseada em roles
-- Performance adequada para até 1000 produtos e movimentações
-
 =========================================================================
 ## FUNCIONALIDADES INCLUÍDAS
 =========================================================================
@@ -175,7 +172,7 @@ O projeto inicial previa um protótipo visual detalhado no Figma, incluindo:
 
 Durante o desenvolvimento, enfrentamos dificuldades:
 
-1. Limitação de tempo (50 minutos para MVP)
+1. Limitação de tempo 
 2. Adaptação do projeto-base existente em Next.js
 3. Integração de autenticação e roles com todas as páginas
 4. Ajustes de front-end sem frameworks de UI complexos
