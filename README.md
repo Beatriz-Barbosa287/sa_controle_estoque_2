@@ -100,6 +100,8 @@ gestor    | 456   | gestor   | Dashboard, Produtos, Movimentações
 =========================================================================
 ## DIAGRAMAS 
 =========================================================================
+
+Diagrama de Classes
 ``` mermaid
 
 classDiagram
@@ -127,7 +129,7 @@ classDiagram
     Product --> Movement
     
 ```
-
+Diagrama de Atores
 ``` mermaid
 graph TD
 
@@ -146,7 +148,7 @@ graph TD
     Gestor --> Dashboard
     Operador --> RegistrarMov
 ```
-  
+Diagrama de Caso de Uso  
 ``` mermaid
 flowchart TD
 
