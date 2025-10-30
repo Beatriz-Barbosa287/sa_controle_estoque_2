@@ -179,7 +179,7 @@ Durante o desenvolvimento, enfrentamos dificuldades:
 2. Adaptação do projeto-base existente em Next.js
 3. Integração de autenticação e roles com todas as páginas
 4. Ajustes de front-end sem frameworks de UI complexos
-5. 
+
 ======================================================================== 
 ## PROTOTIPAÇÃO
 ========================================================================
